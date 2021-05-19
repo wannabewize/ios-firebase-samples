@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseUI
 
-class ViewController: UIViewController {
+class AuthViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: FUIAuthDelegate {
+extension AuthViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
         self.textView.text.append("\n로그인 시도")
         if let user = authDataResult?.user {

@@ -381,6 +381,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
+  - Firebase/Storage
   - FirebaseFirestoreSwift
   - FirebaseUI (~> 8.0)
 
@@ -439,6 +440,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
 
-PODFILE CHECKSUM: 31b9920fc2910375d1e12be12f6da7c364fd1369
+PODFILE CHECKSUM: f080564831ecbcbc92cae5c8147295c2c1155d1c
 
 COCOAPODS: 1.10.1

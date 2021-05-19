@@ -51,15 +51,17 @@ class MovieDetailViewController: UIViewController {
             if let poster = movie["poster"] as? String,
                let encoded = poster.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
                let url = URL(string: encoded) {
+
                 DispatchQueue.global().async {
-                    if let data = try? Data(contentsOf: url) {
+                    do {
+                        let data = try Data(contentsOf: url)
                         let image = UIImage(data: data)
                         DispatchQueue.main.async {
                             self.posterImageView.image = image
                         }
                     }
-                    else {
-                        print("포스터 이미지 다운로드 오류:", poster)
+                    catch let error {
+                        print("포스터 이미지 다운로드 오류:", error)
                     }
                 }
             }

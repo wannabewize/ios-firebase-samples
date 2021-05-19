@@ -8,5 +8,7 @@ target 'FirebaseExample' do
   # Pods for FirebaseExample
   pod 'Firebase/Auth'
   pod 'FirebaseUI', '~> 8.0'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
 end

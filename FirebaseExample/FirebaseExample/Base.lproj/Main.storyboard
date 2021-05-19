@@ -76,6 +76,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XMC-gh-YVB" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5BN-XD-q6m">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -342,7 +343,13 @@
                             <constraint firstItem="poO-kI-uPi" firstAttribute="top" secondItem="Ru6-Cn-L8w" secondAttribute="top" id="ivF-Ar-n4s"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="cmA-Me-Ryh"/>
+                    <navigationItem key="navigationItem" id="cmA-Me-Ryh">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="1qr-cZ-dvI">
+                            <connections>
+                                <action selector="deleteMovie:" destination="xfu-Ko-jpc" id="fHs-iR-wpo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="actorsLabel" destination="flC-z4-Vm4" id="7JU-co-ALS"/>
                         <outlet property="directorLabel" destination="pTA-cZ-Irm" id="fZs-aQ-ocF"/>

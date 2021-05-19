@@ -68,4 +68,28 @@ class MovieDetailViewController: UIViewController {
             }
         }
     }
+    
+    // 영화 삭제
+    @IBAction func deleteMovie(_ sender: Any) {
+        guard let movieId = movieId else {
+            print("movieId is nil")
+            return
+        }
+        
+        let dialog = UIAlertController(title: "삭제?", message: nil, preferredStyle: .alert)
+        dialog.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        
+        let deleteAction = UIAlertAction(title: "확인", style: .destructive) { _ in
+            let db = Firestore.firestore()
+            db.collection("movies").document(movieId).delete { error in
+                guard error == nil else {
+                    print("영화 삭제 에러", error)
+                    return
+                }
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        dialog.addAction(deleteAction)
+        self.present(dialog, animated: true, completion: nil)
+    }
 }

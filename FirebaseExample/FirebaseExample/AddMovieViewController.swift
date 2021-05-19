@@ -32,7 +32,7 @@ class AddMovieViewController: UIViewController {
         ]
         
         // 데이터베이스에 데이터 저장
-        let db = Firestore.firestore()        
+        let db = Firestore.firestore()
         db.collection("movies").addDocument(data: data) { error in
             guard error == nil else {
                 print("Error :", error)
@@ -40,6 +40,7 @@ class AddMovieViewController: UIViewController {
             }
             print("success")
 
+            // 모달 닫기가 viewWillAppear를 호출하지 않는다. - delegate로
             self.delegate?.resolveMovies()
             self.dismiss(animated: true, completion: nil)
             

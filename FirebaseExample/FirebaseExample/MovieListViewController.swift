@@ -13,7 +13,7 @@ struct Movie {
     let title: String
 }
 
-class FireStoreViewController: UITableViewController {
+class MovieListViewController: UITableViewController {
     
     var movies: [Movie] = []
 

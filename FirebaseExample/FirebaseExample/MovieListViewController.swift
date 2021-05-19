@@ -13,7 +13,11 @@ struct Movie {
     let title: String
 }
 
-class MovieListViewController: UITableViewController {
+protocol MovieDataChangHandle {
+    func resolveMovies()
+}
+
+class MovieListViewController: UITableViewController, MovieDataChangHandle {
     
     var movies: [Movie] = []
 
@@ -68,6 +72,9 @@ class MovieListViewController: UITableViewController {
             
             let movie = movies[indexPath.row]
             detailVC.movieId = movie.id
+        }
+        else if let vc = segue.destination as? AddMovieViewController {
+            vc.delegate = self
         }
     }
 }

@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="698.55072463768124" y="-208.25892857142856"/>
         </scene>
-        <!--Fire Store View Controller-->
+        <!--Movie List View Controller-->
         <scene sceneID="E9v-Al-SVQ">
             <objects>
-                <tableViewController id="qF4-RC-KR5" customClass="FireStoreViewController" customModule="FirebaseExample" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qF4-RC-KR5" customClass="MovieListViewController" customModule="FirebaseExample" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3IM-NP-sD8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,12 +143,115 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JNj-s3-ej1">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="lG8-nx-Nnc"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="lG8-nx-Nnc">
+                            <connections>
+                                <segue destination="8wC-Ti-kl8" kind="presentation" id="Maz-AA-GFW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XD9-0u-Xrz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1612" y="-208"/>
+        </scene>
+        <!--Add Movie View Controller-->
+        <scene sceneID="b81-GS-xfq">
+            <objects>
+                <viewController id="8wC-Ti-kl8" customClass="AddMovieViewController" customModule="FirebaseExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="w6k-G4-KDh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="C6Q-cs-LI7">
+                                <rect key="frame" x="12" y="56" width="390" height="126"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="K3H-3Q-Zdp">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Coj-gA-bwy">
+                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FR4-hw-ohc">
+                                                <rect key="frame" x="78.5" y="0.0" width="311.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="VcV-JQ-cCr">
+                                        <rect key="frame" x="0.0" y="46" width="390" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감독" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KPg-BP-KKj">
+                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="auc-4X-GlK">
+                                                <rect key="frame" x="78.5" y="0.0" width="311.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="Zhj-Pk-wnq">
+                                        <rect key="frame" x="0.0" y="92" width="390" height="34"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출연" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZA-rB-rSH">
+                                                <rect key="frame" x="0.0" y="0.0" width="29.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="35Q-pc-yMF">
+                                                <rect key="frame" x="78.5" y="0.0" width="311.5" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Vj-Ck-pbw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="xaB-wD-m6A">
+                                        <connections>
+                                            <action selector="hadleCancel:" destination="8wC-Ti-kl8" id="vkL-US-pU8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rbr-ax-6FC"/>
+                                    <barButtonItem systemItem="done" id="syB-MW-ibi">
+                                        <connections>
+                                            <action selector="handleDone:" destination="8wC-Ti-kl8" id="OvL-mZ-vrr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hUC-9I-uym"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="C6Q-cs-LI7" firstAttribute="leading" secondItem="hUC-9I-uym" secondAttribute="leading" constant="12" id="0lm-7U-eCJ"/>
+                            <constraint firstItem="hUC-9I-uym" firstAttribute="trailing" secondItem="C6Q-cs-LI7" secondAttribute="trailing" constant="12" id="4HB-RF-SO2"/>
+                            <constraint firstItem="hUC-9I-uym" firstAttribute="trailing" secondItem="3Vj-Ck-pbw" secondAttribute="trailing" id="7z0-Q3-Yik"/>
+                            <constraint firstItem="3Vj-Ck-pbw" firstAttribute="top" secondItem="hUC-9I-uym" secondAttribute="top" id="8Hl-rm-FbV"/>
+                            <constraint firstItem="3Vj-Ck-pbw" firstAttribute="leading" secondItem="hUC-9I-uym" secondAttribute="leading" id="l8U-vf-R8g"/>
+                            <constraint firstItem="C6Q-cs-LI7" firstAttribute="top" secondItem="3Vj-Ck-pbw" secondAttribute="bottom" constant="12" id="oV9-3k-U1O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actorsField" destination="35Q-pc-yMF" id="GfB-Mp-I0p"/>
+                        <outlet property="directorField" destination="auc-4X-GlK" id="j4A-tL-hcP"/>
+                        <outlet property="titleField" destination="FR4-hw-ohc" id="h1i-GA-gKJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eiW-Gj-z4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2391" y="-532"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="Nkb-3B-QKh">

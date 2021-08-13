@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+            "title": "미나리",
+            "director": "정이삭",
+            "actors": "스티븐 연, 한예리, 앨런 킴, 윤여정",
+            "poster": "https://upload.wikimedia.org/wikipedia/ko/f/f6/미나리_포스터.jpg"
+        },
+        {
+            "title": "기생충",
+            "director": "봉준호",
+            "actors": "송강호, 이선균, 조여정, 박소담",
+            "poster": "https://upload.wikimedia.org/wikipedia/ko/6/60/기생충_포스터.jpg"
+        }
+    ]
+}

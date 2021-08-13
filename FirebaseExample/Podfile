@@ -6,10 +6,12 @@ target 'FirebaseExample' do
   use_frameworks!
 
   # Pods for FirebaseExample
+  pod 'Alamofire', '~> 5.4'
   pod 'Firebase/Auth'
   pod 'FirebaseUI', '~> 8.0'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Storage'
+
 
 end

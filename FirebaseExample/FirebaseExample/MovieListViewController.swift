@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-struct Movie {
+struct MovieDoc {
     let id: String
     let title: String
 }
@@ -19,7 +19,7 @@ protocol MovieDataChangHandle {
 
 class MovieListViewController: UITableViewController, MovieDataChangHandle {
     
-    var movies: [Movie] = []
+    var movies: [MovieDoc] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class MovieListViewController: UITableViewController, MovieDataChangHandle {
                 let movieId = document.documentID
                 let value: [String: Any] = document.data()
                 let title = value["title"] as! String
-                return Movie(id: movieId, title: title)
+                return MovieDoc(id: movieId, title: title)
             }
             self.tableView.reloadData()
         }

@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import FirebaseUI
+import FirebaseAuth
 
 class AuthViewController: UIViewController {
 
@@ -37,23 +37,6 @@ class AuthViewController: UIViewController {
         }
     }
     
-    @IBAction func signInUI(_ sender: Any) {
-        let authUI = FUIAuth.defaultAuthUI()!
-        // 델리게이트 설정
-        authUI.delegate = self
-        // 프로바이서 설정
-        let providers: [FUIAuthProvider] = [
-            FUIEmailAuth()
-//            FUIFacebookAuth(),
-//            FUIGoogleAuth()
-        ]
-        authUI.providers = providers
-        let authViewController = authUI.authViewController()
-        // 모달로 기본 인증 VC
-        self.present(authViewController, animated: true, completion: nil)
-    }
-    
-    
     @IBAction func signOut(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -80,20 +63,3 @@ class AuthViewController: UIViewController {
         }
     }
 }
-
-extension AuthViewController: FUIAuthDelegate {
-    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
-        self.textView.text.append("\n로그인 시도")
-        if let user = authDataResult?.user {
-            self.textView.text.append("""
-                \n==로그인 성공==
-                로그인 한 사용자 이름 : \(user.displayName)
-                Email: \(user.email)
-                """
-            )
-
-        }
-    }
-    
-}
-

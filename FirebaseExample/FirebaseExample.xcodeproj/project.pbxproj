@@ -130,15 +130,12 @@
 				2C44648A26552C6900504E37 /* Frameworks */,
 				2C44648B26552C6900504E37 /* Resources */,
 				8DFF2E92DAC5A69425450F9B /* [CP] Embed Pods Frameworks */,
-				DCA1F442738311EE47A29118 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = FirebaseExample;
-			packageProductDependencies = (
-			);
 			productName = FirebaseExample;
 			productReference = 2C44648D26552C6900504E37 /* FirebaseExample.app */;
 			productType = "com.apple.product-type.application";
@@ -166,8 +163,6 @@
 				Base,
 			);
 			mainGroup = 2C44648426552C6900504E37;
-			packageReferences = (
-			);
 			productRefGroup = 2C44648E26552C6900504E37 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,23 +226,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirebaseExample/Pods-FirebaseExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DCA1F442738311EE47A29118 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseExample/Pods-FirebaseExample-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FirebaseExample/Pods-FirebaseExample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirebaseExample/Pods-FirebaseExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -420,6 +398,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.wannabewize.example.FirebaseExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

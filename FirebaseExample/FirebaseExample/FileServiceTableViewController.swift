@@ -16,9 +16,9 @@ class FileServiceTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        resolveMovies()
+//        resolveMovies()
         // Alamofire로 얻기
-//        resolveMovies2()
+        resolveMovies2()
     }
 
     func resolveMovies() {
@@ -42,14 +42,12 @@ class FileServiceTableViewController: UITableViewController {
     
     func resolveMovies2() {
         if let url = URL(string: "https://raw.githubusercontent.com/wannabewize/iOS-Sample-Firebase/master/FirebaseExample/movies.json") {
-            AF.request(url).responseJSON { result in
-                guard result.error == nil else {
-                    print("Error", result.error)
-                    return
-                }
-                if let data = result.data,
-                   let root = try? JSONDecoder().decode(MovieData.self, from: data) {
-                    self.movies = root.data
+            AF.request(url).responseDecodable(of: MovieData.self) { response in
+                switch response.result {
+                case .failure(let error):
+                    print("Error", error.localizedDescription)
+                case .success(let result):
+                    self.movies = result.data
                     self.tableView.reloadData()
                 }
             }

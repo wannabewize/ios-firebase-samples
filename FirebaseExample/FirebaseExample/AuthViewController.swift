@@ -17,7 +17,7 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         
         let listener = Auth.auth().addStateDidChangeListener { auth, user in
-            self.textView.text.append("\nAuth State Changed.\n")
+            self.textView.text.append("\nAuth State Changed. user exist :\(user != nil)\n")
         }
         
     }
@@ -98,9 +98,10 @@ extension AuthViewController: ASAuthorizationControllerDelegate {
             let user = credential.user
             let name = credential.fullName
             let email = credential.email
+            
             guard let appleIDToken = credential.identityToken else { fatalError("fetch id token fail") }
             guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else { fatalError("serialize token string error") }
-            
+
             let fbCredential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nil)
             Auth.auth().signIn(with: fbCredential) { authResult, error in
                 guard error == nil else {

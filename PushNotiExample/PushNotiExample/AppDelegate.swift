@@ -6,14 +6,14 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        UNUserNotificationCenter.current().delegate = self
-        let options: UNAuthorizationOptions = [.badge, .alert]
+        let options: UNAuthorizationOptions = [.badge, .alert, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { authorized, error in
             guard error == nil else {
                 fatalError(error!.localizedDescription)
@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // requestAuthorization의 핸들러는 multi thread 에서 동작. 토큰 요청은 메인 쓰레드에서
                 DispatchQueue.main.async {
                     application.registerForRemoteNotifications()
+                    UNUserNotificationCenter.current().delegate = self
                 }
             }
         }
@@ -30,12 +31,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    // background notification
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        debugPrint("application(_:didReceiveRemoteNotification:fetchCompletionHandler)", userInfo["data"])
+
+//        if let vc = UIApplication.shared.windows.first?.rootViewController {
+//            let alert = UIAlertController(title: "Wow", message: nil, preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: .default))
+//            vc.present(alert, animated: true)
+//        }
+//        else {
+//            debugPrint("Aa")
+//        }
+
+        completionHandler(.noData)
+    }
+    
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         debugPrint("didFailToRegisterForRemoteNotificationsWithError", error.localizedDescription)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenStr = deviceToken.map { String(format: "%02x", $0) }.joined()
+        let tokenStr = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
         debugPrint("didRegisterForRemoteNotificationsWithDeviceToken : ", tokenStr)
     }
 
@@ -57,6 +74,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        debugPrint("userNotificationCenter(_:didReceive:withCompletionHandler:)")
+        let userInfo = response.notification.request.content.userInfo
+        let notiContent = response.notification.request.content
+        debugPrint("title : \(notiContent.title), body: \(notiContent.body)")
+        
+        completionHandler() // let system know, handling notification finished.
+        return
+    }
     
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        debugPrint("userNotificationCenter(_:willPresent:withCompletionHandler:)")
+    }
+    
+
 }
 

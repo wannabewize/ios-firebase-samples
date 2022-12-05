@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2CDAC64D293D976D00680AEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CDAC64C293D976D00680AEA /* GoogleService-Info.plist */; };
 		2CEA746E2937C55000078687 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA746D2937C55000078687 /* AppDelegate.swift */; };
 		2CEA74702937C55000078687 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA746F2937C55000078687 /* SceneDelegate.swift */; };
 		2CEA74722937C55000078687 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEA74712937C55000078687 /* ViewController.swift */; };
@@ -15,10 +14,10 @@
 		2CEA74772937C55100078687 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CEA74762937C55100078687 /* Assets.xcassets */; };
 		2CEA747A2937C55100078687 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CEA74782937C55100078687 /* LaunchScreen.storyboard */; };
 		2CEA74832937C6A800078687 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 2CEA74822937C6A800078687 /* FirebaseMessaging */; };
+		2CF0A3A8293E3B32002082ED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CF0A3A7293E3B32002082ED /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2CDAC64C293D976D00680AEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2CEA746A2937C55000078687 /* PushNotiExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushNotiExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEA746D2937C55000078687 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CEA746F2937C55000078687 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +27,7 @@
 		2CEA74792937C55100078687 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CEA747B2937C55100078687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CEA74842937C75F00078687 /* PushNotiExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PushNotiExample.entitlements; sourceTree = "<group>"; };
+		2CF0A3A7293E3B32002082ED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 		2CEA746C2937C55000078687 /* PushNotiExample */ = {
 			isa = PBXGroup;
 			children = (
-				2CDAC64C293D976D00680AEA /* GoogleService-Info.plist */,
+				2CF0A3A7293E3B32002082ED /* GoogleService-Info.plist */,
 				2CEA74842937C75F00078687 /* PushNotiExample.entitlements */,
 				2CEA746D2937C55000078687 /* AppDelegate.swift */,
 				2CEA746F2937C55000078687 /* SceneDelegate.swift */,
@@ -141,7 +141,7 @@
 				2CEA747A2937C55100078687 /* LaunchScreen.storyboard in Resources */,
 				2CEA74772937C55100078687 /* Assets.xcassets in Resources */,
 				2CEA74752937C55000078687 /* Main.storyboard in Resources */,
-				2CDAC64D293D976D00680AEA /* GoogleService-Info.plist in Resources */,
+				2CF0A3A8293E3B32002082ED /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,17 +18,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Noti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TI3-lZ-Tbu">
-                                <rect key="frame" x="159.66666666666666" y="415.66666666666669" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="144.33333333333334" y="159" width="104.33333333333334" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VPw-OU-7um">
+                                <rect key="frame" x="113.66666666666667" y="386.66666666666669" width="165.66666666666663" height="78.666666666666686"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSE-TS-AgR">
+                                        <rect key="frame" x="0.0" y="0.0" width="165.66666666666666" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Topic Subscribe"/>
+                                        <connections>
+                                            <action selector="subscribeTopic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iXA-hK-NnN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wm-2s-jsH">
+                                        <rect key="frame" x="0.0" y="44.333333333333314" width="165.66666666666666" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Topic Unsubscribe"/>
+                                        <connections>
+                                            <action selector="unsubscribeTopic:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VPe-Li-HiP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TI3-lZ-Tbu" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="BI4-xe-kIT"/>
+                            <constraint firstItem="TI3-lZ-Tbu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Fox-AZ-Qjx"/>
+                            <constraint firstItem="VPw-OU-7um" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="N8G-9O-jXJ"/>
                             <constraint firstItem="TI3-lZ-Tbu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hzc-iI-2V5"/>
+                            <constraint firstItem="VPw-OU-7um" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wJw-bN-l0H"/>
                         </constraints>
                     </view>
                 </viewController>

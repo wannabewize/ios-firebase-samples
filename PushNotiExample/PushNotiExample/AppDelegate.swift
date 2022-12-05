@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
         Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
 
         let options: UNAuthorizationOptions = [.badge, .alert, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { authorized, error in
@@ -25,10 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             debugPrint("Noti Authorized :", authorized)
             if authorized {
-                // requestAuthorization의 핸들러는 multi thread 에서 동작. 토큰 요청은 메인 쓰레드에서
                 DispatchQueue.main.async {
                     application.registerForRemoteNotifications()
-                    UNUserNotificationCenter.current().delegate = self
                 }
             }
         }
@@ -38,18 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // background notification
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        debugPrint("application(_:didReceiveRemoteNotification:fetchCompletionHandler)", userInfo["data"])
-
-//        if let vc = UIApplication.shared.windows.first?.rootViewController {
-//            let alert = UIAlertController(title: "Wow", message: nil, preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: .default))
-//            vc.present(alert, animated: true)
-//        }
-//        else {
-//            debugPrint("Aa")
-//        }
-
-        completionHandler(.noData)
+        debugPrint("application(_:didReceiveRemoteNotification:fetchCompletionHandler)", userInfo )
+        
+        completionHandler(.newData)
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -74,8 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
 }
 
 extension AppDelegate: MessagingDelegate {
@@ -97,8 +86,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         debugPrint("userNotificationCenter(_:willPresent:withCompletionHandler:)")
+        
+        completionHandler([.sound, .banner])
     }
-    
-
 }
 

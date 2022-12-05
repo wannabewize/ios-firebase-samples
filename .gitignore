@@ -1,3 +1,5 @@
+fcm_server_key.json
+*.p8
 GoogleService-Info.plist
 
 # Created by https://www.toptal.com/developers/gitignore/api/xcode,cocoapods

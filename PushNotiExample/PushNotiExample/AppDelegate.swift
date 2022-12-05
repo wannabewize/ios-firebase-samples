@@ -7,11 +7,16 @@
 
 import UIKit
 import UserNotifications
+import FirebaseCore
+import FirebaseMessaging
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        FirebaseApp.configure()
+        Messaging.messaging().delegate = self
 
         let options: UNAuthorizationOptions = [.badge, .alert, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { authorized, error in
@@ -71,6 +76,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("fcm Token :", fcmToken)
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {

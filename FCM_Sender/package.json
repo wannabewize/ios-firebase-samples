@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fcm-node": "^1.6.1"
+    "firebase-admin": "^11.3.0"
   }
 }
